@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title> AI  Chat Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="orb-bg"></div>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">✨</div>
+                <h2> AI Chat Assistant </h2>
+                <span class="badge">free · GC</span>
+            </div>
+            <div class="model-info">
+                <div class="model-badge">
+                    <span>🧠 DialoGPT</span>
+                    <span class="live-dot"></span>
+                </div>
+                <p>Powered by Grok Cloud <br>inference API</p>
+            </div>
+            <button class="new-chat-btn" id="newChatBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                New Conversation
+            </button>
+            <div class="sidebar-footer">
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="theme-icon">🌙</span>
+                    <span>Dark mode</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="chat-main">
+            <div class="chat-header">
+                <div class="header-title">
+                    <h1>AI Chat Assistant</h1>
+                    <p>real · free · open source</p>
+                </div>
+                <div class="connection-status" id="statusDot">
+                    <span class="status-led"></span>
+                    <span id="statusText">Ready</span>
+                </div>
+            </div>
+
+            <div class="messages-area" id="chatMessages">
+                <div class="message bot fade-in">
+                    <div class="avatar bot-avatar">🤖</div>
+                    <div class="message-bubble">
+                        <p>Hey there! I'm  AI Chat Assistant, powered by <strong> Grok Cloud API</strong>.<br>Ask me anything coding, ideas, explanations I'll do my best!</p>
+                        <span class="timestamp">just now</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="userInput" placeholder="Message Nova AI..." rows="1"></textarea>
+                    <button id="sendBtn" class="send-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="input-hint">Press Enter to send · Shift+Enter for new line</div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
