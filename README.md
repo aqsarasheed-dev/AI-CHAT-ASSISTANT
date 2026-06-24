@@ -1,21 +1,41 @@
-🚀 I Built a Premium AI Chat Assistant – Nova AI
+# 🌿 GuideAI – Intelligent Career Assistant
 
-A full-stack AI chat application with a unique Ocean Breeze design and ultra-fast responses (300ms).
+> An AI-powered career assistant that analyzes CVs and provides actionable feedback using Groq's ultra-fast LLM.
 
-🔥 Features:
-• ⚡ 300ms response time (Groq LPU)
-• 🎨 Premium glass-morphism UI
-• 🌓 Dark/Light mode toggle
-• 💰 Completely free (Groq free tier)
-• 🔒 Secure API key management
+![GuideAI Demo](screenshots/demo.png)
 
-🛠️ Tech Stack:
-Frontend: HTML, CSS, JavaScript
-Backend: Python, FastAPI
-AI: Groq Cloud + Llama 3.3 70B
+---
 
+## ✨ Features
 
+| Feature | Description |
+|---------|-------------|
+| 🤖 **AI Chat** | Ask career questions, get instant advice |
+| 📄 **CV Upload** | Securely upload PDF CVs (5MB max) |
+| 🔍 **Auto-Analyze** | AI reads your CV and gives structured feedback |
+| 📋 **CV Management** | View and manage uploaded CVs |
+| 🎨 **Fresh Green UI** | Clean, modern, and accessible design |
+| 🔒 **Security** | Rate limiting, input validation, file sanitization |
 
-This project showcases my full-stack development, API integration, and UI/UX design skills.
+---
 
-#Python #FastAPI #AI #Groq #FullStack #OpenSource #Portfolio
+## 🛠️ Tech Stack
+
+### Backend
+- **Python 3.10+** – Core language
+- **FastAPI** – High-performance API framework
+- **Groq API** – Ultra-fast LLM inference (Llama 3.3 70B)
+- **PyPDF2** – PDF text extraction
+- **SlowAPI** – Rate limiting (15 requests/minute)
+- **Uvicorn** – ASGI server
+
+### Frontend
+- **HTML5 / CSS3** – Structure & styling
+- **JavaScript (ES6)** – Interactivity & API calls
+- **Outfit Font** – Modern typography
+
+### Security
+- **CORS** – Restricted origins
+- **Environment Variables** – API keys protected
+- **Input Validation** – Pydantic models
+- **File Sanitization** – Hash-based filenames

@@ -2,29 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title> AI  Chat Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuideAI – Intelligent Assistant</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+    
+    <!-- Ambient Background -->
     <div class="orb-bg"></div>
+
     <div class="app-container">
+        <!-- SIDEBAR -->
         <aside class="sidebar">
             <div class="logo-area">
-                <div class="logo-icon">✨</div>
-                <h2> AI Chat Assistant </h2>
-                <span class="badge">free · GC</span>
+                <div class="logo-icon">🌿</div>
+                <h2>GuideAI</h2>
+                <span class="badge">vintage · groq</span>
             </div>
+            
             <div class="model-info">
                 <div class="model-badge">
-                    <span>🧠 DialoGPT</span>
+                    <span>🧠 Llama 3.3 70B</span>
                     <span class="live-dot"></span>
                 </div>
-                <p>Powered by Grok Cloud <br>inference API</p>
+                <p>Powered by Groq · free inference</p>
             </div>
+
+            <!-- Quick Topics -->
+            <div class="quick-topics">
+                <button class="topic-btn" data-topic="What is Python and why use it?">
+                    <span class="icon">🐍</span> Python basics
+                </button>
+                <button class="topic-btn" data-topic="Explain machine learning simply">
+                    <span class="icon">🤖</span> ML explained
+                </button>
+                <button class="topic-btn" data-topic="How to build a REST API?">
+                    <span class="icon">⚡</span> REST API guide
+                </button>
+                <button class="topic-btn" data-topic="Best practices for code security">
+                    <span class="icon">🔒</span> Security tips
+                </button>
+            </div>
+
             <button class="new-chat-btn" id="newChatBtn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -32,6 +56,7 @@
                 </svg>
                 New Conversation
             </button>
+
             <div class="sidebar-footer">
                 <button class="theme-toggle" id="themeToggle">
                     <span class="theme-icon">🌙</span>
@@ -40,13 +65,14 @@
             </div>
         </aside>
 
+        <!-- MAIN CHAT -->
         <main class="chat-main">
             <div class="chat-header">
                 <div class="header-title">
-                    <h1>AI Chat Assistant</h1>
-                    <p>real · free · open source</p>
+                    <h1>GuideAI</h1>
+                    <p class="subtitle">intelligent guidance </p>
                 </div>
-                <div class="connection-status" id="statusDot">
+                <div class="connection-status">
                     <span class="status-led"></span>
                     <span id="statusText">Ready</span>
                 </div>
@@ -54,17 +80,26 @@
 
             <div class="messages-area" id="chatMessages">
                 <div class="message bot fade-in">
-                    <div class="avatar bot-avatar">🤖</div>
+                    <div class="avatar bot-avatar">🌿</div>
                     <div class="message-bubble">
-                        <p>Hey there! I'm  AI Chat Assistant, powered by <strong> Grok Cloud API</strong>.<br>Ask me anything coding, ideas, explanations I'll do my best!</p>
+                        <p>Welcome to <strong>GuideAI</strong>. I'm here to provide clear, thoughtful guidance.<br>Ask me anything  I'll do my best to help.</p>
                         <span class="timestamp">just now</span>
                     </div>
                 </div>
+
+                <!-- Suggestion Chips (appear after welcome) -->
+                <div class="suggestion-chips" id="suggestionChips">
+                    <span class="chip" data-msg="What are the best coding practices?">💻 Coding best practices</span>
+                    <span class="chip" data-msg="Explain design patterns simply">🏗️ Design patterns</span>
+                    <span class="chip" data-msg="How to stay productive?">⚡ Productivity tips</span>
+                    <span class="chip" data-msg="What's new in AI?">🤖 AI trends</span>
+                </div>
             </div>
 
+            <!-- INPUT AREA -->
             <div class="input-area">
                 <div class="input-wrapper">
-                    <textarea id="userInput" placeholder="Message Nova AI..." rows="1"></textarea>
+                    <textarea id="userInput" placeholder="Message GuideAI..." rows="1"></textarea>
                     <button id="sendBtn" class="send-button">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -72,7 +107,30 @@
                         </svg>
                     </button>
                 </div>
+
+                <!-- CV Upload -->
+                <div class="cv-upload">
+                    <label for="cvUpload">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        Upload CV (PDF)
+                    </label>
+                    <input type="file" id="cvUpload" accept=".pdf">
+                    <span class="upload-status" id="uploadStatus">No file selected</span>
+                </div>
+
                 <div class="input-hint">Press Enter to send · Shift+Enter for new line</div>
+                <div style="display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap;">
+    <button id="analyzeCvBtn" class="analyze-btn">
+        🔍 Analyze My CV
+    </button>
+    <button id="viewCvListBtn" class="analyze-btn" style="background: rgba(255,255,255,0.2);">
+        📋 View Uploaded CVs
+    </button>
+</div>
             </div>
         </main>
     </div>
